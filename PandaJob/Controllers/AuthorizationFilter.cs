@@ -17,7 +17,7 @@ namespace PandaJob.Controllers
             // Allow all authenticated users to see the Dashboard (potentially dangerous).
             //return owinContext.Authentication.User.Identity.IsAuthenticated;
 
-            //todo:使用Form认证 
+            //todo:使用Form认证  
 
             return true;
         }
