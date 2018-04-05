@@ -15,17 +15,32 @@
             <h3>熊猫任务管理系统</h3>
             <form class="m-t" role="form" action="http://www.zi-han.net/theme/hplus/index.html">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="用户名" required="">
+                    <input type="email" class="form-control" placeholder="用户名" value="admin" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="">
+                    <input type="password" class="form-control" placeholder="密码" value="1234" required="">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
-
-
+                <button id="login" type="submit" class="btn btn-primary block full-width m-b">登 录</button>
             </form>
         </div>
     </div>
-   
+
 </body>
+<script type="text/javascript" src="http://img.xdf.cn/souke/v8_1/js/jquery/jquery.js?v=20180315"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#login').click(function () {
+            var url = '/Home/SignIn';
+            var param = {
+                name: 'admin',
+                password: '1234'
+            };
+            $.post(url, param, function (resp) {
+
+            });
+        });
+    });
+
+</script>
 
