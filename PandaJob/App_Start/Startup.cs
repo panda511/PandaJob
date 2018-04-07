@@ -38,5 +38,20 @@ namespace PandaJob.App_Start
                 conn.Execute(sql, param);
             }
         }
+
+        public void Fire()
+        {
+            //基于队列的任务处理
+            //var jobId = BackgroundJob.Enqueue(() => DoEnqueue());
+
+            //延迟任务执行(Delayed jobs)
+            var jobId2 = BackgroundJob.Schedule(() => Console.WriteLine("Delayed!"), TimeSpan.FromDays(7));
+
+            //定时任务执行(Recurring jobs)
+            RecurringJob.AddOrUpdate(() => Console.WriteLine("Recurring!"), Cron.Daily);
+
+            //延续性任务执行(Continuations)
+            //BackgroundJob.ContinueWith(jobId, () => Do1());
+        }
     }
 }
